@@ -1,0 +1,55 @@
+{
+  "project_info": {
+    "project_number": "421668542691",
+    "firebase_url": "https://quotestrevortiffany.firebaseio.com",
+    "project_id": "quotestrevortiffany",
+    "storage_bucket": "quotestrevortiffany.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:421668542691:android:da6b77f853eede7a",
+        "android_client_info": {
+          "package_name": "cs.dawson.myapplication"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "421668542691-e925tbtnpdgj3furtnacsg60img4r9lp.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "cs.dawson.myapplication",
+            "certificate_hash": "f6c06e8b36e44a62552e6fe12e6fa6601a1cb1e8"
+          }
+        },
+        {
+          "client_id": "421668542691-3nughreecdkmto4jo5kut9e44q6nc86i.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyCB4Dj_JdJaHCmDn7URI88gPtCUAwSCvRQ"
+        }
+      ],
+      "services": {
+        "analytics_service": {
+          "status": 1
+        },
+        "appinvite_service": {
+          "status": 2,
+          "other_platform_oauth_client": [
+            {
+              "client_id": "421668542691-3nughreecdkmto4jo5kut9e44q6nc86i.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        },
+        "ads_service": {
+          "status": 2
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
