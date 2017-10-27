@@ -1,5 +1,6 @@
 package cs.dawson.myapplication;
 
+import android.graphics.drawable.Drawable;
 import android.support.annotation.NonNull;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
@@ -17,6 +18,8 @@ import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.database.ValueEventListener;
 
+import java.io.InputStream;
+import java.net.URL;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
@@ -134,5 +137,21 @@ public class MainActivity extends AppCompatActivity {
                 Log.w(TAG, "Failed to read value.", error.toException());
             }
         });
+    }
+
+    /**
+     * Return a drawable to display from an image
+     * url. You can then set the image to an image view
+     * @param url
+     *      from Firebase
+     * @return Drawable
+     */
+    public Drawable getImageFromUrl(String url) {
+        try {
+            InputStream is = (InputStream) new URL(url).getContent();
+            return Drawable.createFromStream(is, "url");
+        } catch (Exception e) {
+            return null;
+        }
     }
 }
