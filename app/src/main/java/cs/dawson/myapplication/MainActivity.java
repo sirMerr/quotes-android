@@ -18,8 +18,11 @@ import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.database.ValueEventListener;
 
 import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 
+import entities.Author;
 import entities.Category;
 import entities.Quote;
 
@@ -98,8 +101,6 @@ public class MainActivity extends AppCompatActivity {
                             Toast.makeText(MainActivity.this, R.string.auth_failed,
                                     Toast.LENGTH_SHORT).show();
                         }
-
-                        // ...
                     }
                 });
     }
@@ -119,11 +120,12 @@ public class MainActivity extends AppCompatActivity {
             public void onDataChange(DataSnapshot dataSnapshot) {
                 // This method is called once with the initial value and again
                 // whenever data at this location is updated.
-                Log.d(TAG, "Snapshot: " + dataSnapshot.toString());
+                Log.d(TAG, "Snapshot: " + dataSnapshot);
 
-                // TODO: Add categories from DB
-                String value = dataSnapshot.getValue(String.class);
-                Log.d(TAG, "Value is: " + value);
+                for (DataSnapshot categorySnap: dataSnapshot.getChildren()) {
+                    categories.add(categorySnap.getValue(Category.class));
+                }
+                Log.d(TAG, "Categories found: " + categories);
             }
 
             @Override

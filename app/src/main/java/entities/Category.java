@@ -8,13 +8,12 @@ import java.util.List;
  */
 
 public class Category {
-    private String title;
-    private String blurb;
-    private String image;
-    private List<Quote> quotes;
+    private String title = "";
+    private String blurb = "";
+    private String image = "";
+    private List<Quote> quotes = new ArrayList<>();
 
     public Category() {
-        this("","","",new ArrayList<Quote>());
     }
 
     public Category(String title, String blurb, String image, List<Quote> quotes) {

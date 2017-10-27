@@ -7,38 +7,37 @@ import java.util.Date;
  */
 
 public class Quote {
-    private String author;
-    private Date creationDate;
-    private String fullQuote;
-    private String shortQuote;
-    private String url;
+    private Author author = new Author();
+    private String dateAdded = "";
+    private String fullQuote = "";
+    private String shortQuote = "";
+    private String url = "";
 
     public Quote() {
-        this("", new Date(), "", "", "");
     }
 
-    public Quote(String author, Date creationDate, String fullQuote, String shortQuote, String url) {
+    public Quote(Author author, String dateAdded, String fullQuote, String shortQuote, String url) {
         this.author = author;
-        this.creationDate = creationDate;
+        this.dateAdded = dateAdded;
         this.fullQuote = fullQuote;
         this.shortQuote = shortQuote;
         this.url = url;
     }
 
-    public String getAuthor() {
+    public Author getAuthor() {
         return author;
     }
 
-    public void setAuthor(String author) {
+    public void setAuthor(Author author) {
         this.author = author;
     }
 
-    public Date getCreationDate() {
-        return creationDate;
+    public String getDateAdded() {
+        return dateAdded;
     }
 
-    public void setCreationDate(Date creationDate) {
-        this.creationDate = creationDate;
+    public void setDateAdded(String dateAdded) {
+        this.dateAdded = dateAdded;
     }
 
     public String getFullQuote() {
@@ -74,7 +73,7 @@ public class Quote {
 
         if (getAuthor() != null ? !getAuthor().equals(quote.getAuthor()) : quote.getAuthor() != null)
             return false;
-        if (getCreationDate() != null ? !getCreationDate().equals(quote.getCreationDate()) : quote.getCreationDate() != null)
+        if (getDateAdded() != null ? !getDateAdded().equals(quote.getDateAdded()) : quote.getDateAdded() != null)
             return false;
         if (getFullQuote() != null ? !getFullQuote().equals(quote.getFullQuote()) : quote.getFullQuote() != null)
             return false;
@@ -87,7 +86,7 @@ public class Quote {
     @Override
     public int hashCode() {
         int result = getAuthor() != null ? getAuthor().hashCode() : 0;
-        result = 31 * result + (getCreationDate() != null ? getCreationDate().hashCode() : 0);
+        result = 31 * result + (getDateAdded() != null ? getDateAdded().hashCode() : 0);
         result = 31 * result + (getFullQuote() != null ? getFullQuote().hashCode() : 0);
         result = 31 * result + (getShortQuote() != null ? getShortQuote().hashCode() : 0);
         result = 31 * result + (getUrl() != null ? getUrl().hashCode() : 0);
@@ -98,7 +97,7 @@ public class Quote {
     public String toString() {
         return "Quote{" +
                 "author='" + author + '\'' +
-                ", creationDate=" + creationDate +
+                ", dateAdded=" + dateAdded +
                 ", fullQuote='" + fullQuote + '\'' +
                 ", shortQuote='" + shortQuote + '\'' +
                 ", url='" + url + '\'' +
