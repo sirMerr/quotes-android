@@ -1,6 +1,9 @@
 # PMC Last updated 2016-08-29
 # generic .gitignore for android studio projects
 
+# SonarLint
+**/.idea/sonarlint/*
+
 # android studio files that are specific to hosting OS
 **/*.iml
 **/*.iws
