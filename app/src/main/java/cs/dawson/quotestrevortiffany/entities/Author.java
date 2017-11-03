@@ -1,4 +1,4 @@
-package entities;
+package cs.dawson.quotestrevortiffany.entities;
 
 /**
  * Created by sirMerr on 2017-10-27.
@@ -7,13 +7,15 @@ package entities;
 public class Author {
     private String name = "";
     private String birthdate = "";
+    private String blurb = "";
 
     public Author() {
     }
 
-    public Author(String name, String birthdate) {
+    public Author(String name, String birthdate, String blurb) {
         this.name = name;
         this.birthdate = birthdate;
+        this.blurb = blurb;
     }
 
     public String getName() {
@@ -32,6 +34,14 @@ public class Author {
         this.birthdate = birthdate;
     }
 
+    public String getBlurb() {
+        return blurb;
+    }
+
+    public void setBlurb(String blurb) {
+        this.blurb = blurb;
+    }
+
     @Override
     public boolean equals(Object o) {
         if (this == o) return true;
@@ -41,14 +51,16 @@ public class Author {
 
         if (getName() != null ? !getName().equals(author.getName()) : author.getName() != null)
             return false;
-        return getBirthdate() != null ? getBirthdate().equals(author.getBirthdate()) : author.getBirthdate() == null;
-
+        if (getBirthdate() != null ? !getBirthdate().equals(author.getBirthdate()) : author.getBirthdate() != null)
+            return false;
+        return getBlurb() != null ? getBlurb().equals(author.getBlurb()) : author.getBlurb() == null;
     }
 
     @Override
     public int hashCode() {
         int result = getName() != null ? getName().hashCode() : 0;
         result = 31 * result + (getBirthdate() != null ? getBirthdate().hashCode() : 0);
+        result = 31 * result + (getBlurb() != null ? getBlurb().hashCode() : 0);
         return result;
     }
 
@@ -57,6 +69,7 @@ public class Author {
         return "Author{" +
                 "name='" + name + '\'' +
                 ", birthdate='" + birthdate + '\'' +
+                ", blurb='" + blurb + '\'' +
                 '}';
     }
 }

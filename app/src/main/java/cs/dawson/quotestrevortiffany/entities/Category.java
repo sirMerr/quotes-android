@@ -1,4 +1,4 @@
-package entities;
+package cs.dawson.quotestrevortiffany.entities;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -9,16 +9,14 @@ import java.util.List;
 
 public class Category {
     private String title = "";
-    private String blurb = "";
     private String image = "";
     private List<Quote> quotes = new ArrayList<>();
 
     public Category() {
     }
 
-    public Category(String title, String blurb, String image, List<Quote> quotes) {
+    public Category(String title, String image, List<Quote> quotes) {
         this.title = title;
-        this.blurb = blurb;
         this.image = image;
         this.quotes = quotes;
     }
@@ -29,14 +27,6 @@ public class Category {
 
     public void setTitle(String title) {
         this.title = title;
-    }
-
-    public String getBlurb() {
-        return blurb;
-    }
-
-    public void setBlurb(String blurb) {
-        this.blurb = blurb;
     }
 
     public String getImage() {
@@ -64,18 +54,14 @@ public class Category {
 
         if (getTitle() != null ? !getTitle().equals(category.getTitle()) : category.getTitle() != null)
             return false;
-        if (getBlurb() != null ? !getBlurb().equals(category.getBlurb()) : category.getBlurb() != null)
-            return false;
         if (getImage() != null ? !getImage().equals(category.getImage()) : category.getImage() != null)
             return false;
         return getQuotes() != null ? getQuotes().equals(category.getQuotes()) : category.getQuotes() == null;
-
     }
 
     @Override
     public int hashCode() {
         int result = getTitle() != null ? getTitle().hashCode() : 0;
-        result = 31 * result + (getBlurb() != null ? getBlurb().hashCode() : 0);
         result = 31 * result + (getImage() != null ? getImage().hashCode() : 0);
         result = 31 * result + (getQuotes() != null ? getQuotes().hashCode() : 0);
         return result;
@@ -85,7 +71,6 @@ public class Category {
     public String toString() {
         return "Category{" +
                 "title='" + title + '\'' +
-                ", blurb='" + blurb + '\'' +
                 ", image='" + image + '\'' +
                 ", quotes=" + quotes +
                 '}';
