@@ -1,22 +1,25 @@
 # PMC Last updated 2016-08-29
 # generic .gitignore for android studio projects
 
+# SonarLint
+**/.idea/sonarlint/*
+
 # android studio files that are specific to hosting OS
-*.iml
-*.iws
+**/*.iml
+**/*.iws
 # gradle files
 .gradle/
 build/
 # Local config file (sdk path etc)
 local.properties
 # Intellij IDEA (see https://intellij-support.jetbrains.com/entries/23393067)
-.idea/workspace.xml
-.idea/libraries
+**/.idea/workspace.xml
+**/.idea/libraries
 captures
 
 # editor temp files
-*.swp
-*.tmp
+**/*.swp
+**/*.tmp
 
 # OS X nonsense
 .DS_Store
