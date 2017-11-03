@@ -1,4 +1,4 @@
-package cs.dawson.myapplication;
+package cs.dawson.quotestrevortiffany.views;
 
 import android.graphics.drawable.Drawable;
 import android.support.annotation.NonNull;
@@ -21,13 +21,10 @@ import com.google.firebase.database.ValueEventListener;
 import java.io.InputStream;
 import java.net.URL;
 import java.util.ArrayList;
-import java.util.HashMap;
 import java.util.List;
-import java.util.Map;
 
-import entities.Author;
-import entities.Category;
-import entities.Quote;
+import cs.dawson.myapplication.R;
+import cs.dawson.quotestrevortiffany.entities.Category;
 
 public class MainActivity extends AppCompatActivity {
     static final String TAG = "MainActivity Class: ";

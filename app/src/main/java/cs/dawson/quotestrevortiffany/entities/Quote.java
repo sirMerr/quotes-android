@@ -1,6 +1,4 @@
-package entities;
-
-import java.util.Date;
+package cs.dawson.quotestrevortiffany.entities;
 
 /**
  * Created by sirMerr on 2017-10-24.

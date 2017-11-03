@@ -1,4 +1,4 @@
-package cs.dawson.myapplication;
+package cs.dawson.quotestrevortiffany.views;
 
 /**
  * Created by sirMerr on 2017-10-24.
