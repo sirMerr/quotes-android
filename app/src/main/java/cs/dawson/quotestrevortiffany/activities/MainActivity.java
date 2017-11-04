@@ -33,18 +33,16 @@ import java.util.List;
 import cs.dawson.myapplication.R;
 import cs.dawson.quotestrevortiffany.entities.Category;
 
-public class MainActivity extends AppCompatActivity {
+public class MainActivity extends MenuActivity {
     static final String TAG = "MainActivity Class: ";
     private FirebaseAuth mAuth;
     private FirebaseAuth.AuthStateListener mAuthListener;
     private String email = "letiffany.nguyen@gmail.com";
     private String password = "adminquotes";
-    private List<Category> categories = new ArrayList<>();
     private ListView lv;
     private Context context;
     private ArrayAdapter<Category> adapter;
     private ArrayAdapter<String> adapterString;
-    List<String> titles = new ArrayList<>();
 
 
     @Override
@@ -55,14 +53,18 @@ public class MainActivity extends AppCompatActivity {
 
         lv = (ListView) findViewById(R.id.listView);
 
-        Log.d(TAG, "WHAT EVEN IS THIS TOO");
+        authFirebase();
+        getDB();
 
+        setListView();
+    }
+
+    private void authFirebase() {
         // Initiate FirebaseAuth and AUthStateListener to track
         // whenever user signs in or out
         mAuth = FirebaseAuth.getInstance();
         signIn(email, password);
 
-        Log.d(TAG, "WHAT EVEN IS THIS");
         mAuthListener = new FirebaseAuth.AuthStateListener() {
             @Override
             public void onAuthStateChanged(@NonNull FirebaseAuth firebaseAuth) {
@@ -76,14 +78,8 @@ public class MainActivity extends AppCompatActivity {
                 }
             }
         };
-
-        getDB();
-
-        setListView();
     }
-
     private void setListView() {
-
         Log.d(TAG, "Setting list view");
         Log.d(TAG, "Categories: " + categories);
 

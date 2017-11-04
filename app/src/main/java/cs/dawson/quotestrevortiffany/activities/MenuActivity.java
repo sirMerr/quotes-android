@@ -6,10 +6,11 @@ import android.support.v7.app.AppCompatActivity;
 import android.util.Log;
 import android.view.MenuItem;
 
-import com.google.firebase.auth.FirebaseAuth;
-import com.google.firebase.database.DatabaseReference;
+import java.util.ArrayList;
+import java.util.List;
 
 import cs.dawson.myapplication.R;
+import cs.dawson.quotestrevortiffany.entities.Category;
 
 /**
  * Created by sirMerr on 2017-11-04.
@@ -17,8 +18,8 @@ import cs.dawson.myapplication.R;
 
 public class MenuActivity extends AppCompatActivity {
     private static final String TAG = "MenuActivity";
-    protected DatabaseReference mDatabase;
-    protected FirebaseAuth mFirebaseAuth;
+    protected List<String> titles = new ArrayList<>();
+    protected List<Category> categories = new ArrayList<>();
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {

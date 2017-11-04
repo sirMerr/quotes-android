@@ -17,7 +17,7 @@ import cs.dawson.myapplication.R;
  * @author Trevor Eames
  * @author Tiffany Le-Nguyen
  */
-public class QuoteListActivity extends AppCompatActivity {
+public class QuoteListActivity extends MenuActivity {
     private List<String> shortQuotes;
     public static final String CATEGORY = "trevortiffany.category";
 

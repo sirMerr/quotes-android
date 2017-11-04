@@ -9,7 +9,7 @@ import cs.dawson.myapplication.R;
  * Created by sirMerr on 2017-10-24.
  */
 
-public class QuoteActivity extends AppCompatActivity {
+public class QuoteActivity extends MenuActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
