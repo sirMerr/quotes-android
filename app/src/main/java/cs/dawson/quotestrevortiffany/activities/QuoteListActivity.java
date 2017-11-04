@@ -26,7 +26,6 @@ import cs.dawson.quotestrevortiffany.entities.Quote;
  */
 public class QuoteListActivity extends MenuActivity {
     static final String TAG = "QuotesListActivity: ";
-    public static final String CATEGORY = "categoryId";
     private ArrayAdapter<String> adapterString;
     ListView lv;
     private Context context;
@@ -59,7 +58,6 @@ public class QuoteListActivity extends MenuActivity {
             @Override
             public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
                 String category = ((TextView) view).getText().toString();
-                Log.i(TAG, "onItemClick - category:" + category);
 
                 Intent i = new Intent(context, QuoteActivity.class);
                 i.putExtra("quote.full", category);
@@ -74,10 +72,10 @@ public class QuoteListActivity extends MenuActivity {
      */
     private void setShortQuotes(Bundle extras) {
 
-        Log.d(TAG, "Extras: " + extras.get(CATEGORY));
+        Log.d(TAG, "Extras: " + extras.get("categoryId"));
 
         if (categories != null && !categories.isEmpty()) {
-            Category category = categories.get((int) extras.get(CATEGORY));
+            Category category = categories.get((int) extras.get("categoryId"));
 
             List<Quote> quotes = category.getQuotes();
             for (int i = 0; i < quotes.size(); i++) {

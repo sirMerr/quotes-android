@@ -94,12 +94,8 @@ public class MainActivity extends MenuActivity {
         lv.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             @Override
             public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
-                String category = ((TextView) view).getText().toString();
-                Log.i(TAG, "onItemClick - category:" + category);
-                Log.i(TAG, "onItemClick - position:" + position);
-
                 Intent i = new Intent(context, QuoteListActivity.class);
-                i.putExtra(QuoteListActivity.CATEGORY, position);
+                i.putExtra("categoryId", position);
                 startActivity(i);
             }
         });
