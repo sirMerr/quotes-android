@@ -23,7 +23,9 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_weight="1"
-            android:orientation="vertical">
+            android:orientation="vertical"
+            android:onClick="displayBlurb"
+            >
 
             <TextView
                 android:id="@+id/textViewName"
@@ -39,12 +41,6 @@
                 android:layout_weight="1"
                 android:text="@string/birthdate" />
 
-            <TextView
-                android:id="@+id/textViewDateAdded"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_weight="1"
-                android:text="@string/dateAdded" />
         </LinearLayout>
 
     </LinearLayout>
@@ -56,6 +52,12 @@
         android:text="@string/shortQuote" />
 
     <TextView
+        android:id="@+id/textViewDateAdded"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="@string/dateAdded" />
+
+    <TextView
         android:id="@+id/textViewFullQuote"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
@@ -65,7 +67,8 @@
         android:id="@+id/textViewUrl"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="@string/url" />
+        android:text="@string/url"
+        android:autoLink="web"/>
 
 
     <ImageView

@@ -182,20 +182,4 @@ public class MainActivity extends MenuActivity {
         });
 
     }
-
-    /**
-     * Return a drawable to display from an image
-     * url. You can then set the image to an image view
-     * @param url
-     *      from Firebase
-     * @return Drawable
-     */
-    public Drawable getImageFromUrl(String url) {
-        try {
-            InputStream is = (InputStream) new URL(url).getContent();
-            return Drawable.createFromStream(is, "url");
-        } catch (Exception e) {
-            return null;
-        }
-    }
 }
