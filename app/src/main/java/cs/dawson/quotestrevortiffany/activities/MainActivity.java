@@ -4,7 +4,6 @@ import android.content.Context;
 import android.content.Intent;
 import android.graphics.drawable.Drawable;
 import android.support.annotation.NonNull;
-import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
@@ -30,7 +29,7 @@ import java.net.URL;
 import java.util.ArrayList;
 import java.util.List;
 
-import cs.dawson.myapplication.R;
+import cs.dawson.quotestrevortiffany.R;
 import cs.dawson.quotestrevortiffany.entities.Category;
 
 public class MainActivity extends MenuActivity {
@@ -41,7 +40,6 @@ public class MainActivity extends MenuActivity {
     private String password = "adminquotes";
     private ListView lv;
     private Context context;
-    private ArrayAdapter<Category> adapter;
     private ArrayAdapter<String> adapterString;
 
 
@@ -86,7 +84,7 @@ public class MainActivity extends MenuActivity {
         adapterString = new ArrayAdapter<>(this, android.R.layout.simple_list_item_1, titles);
         lv.setAdapter(adapterString);
 
-        //Click listeners for the items.
+        // Click listeners for items
         lv.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             @Override
             public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
