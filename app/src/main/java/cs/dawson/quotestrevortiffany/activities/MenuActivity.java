@@ -19,7 +19,7 @@ import cs.dawson.quotestrevortiffany.entities.Category;
 public class MenuActivity extends AppCompatActivity {
     private static final String TAG = "MenuActivity";
     protected List<String> titles = new ArrayList<>();
-    protected List<Category> categories = new ArrayList<>();
+    protected static List<Category> categories = new ArrayList<>();
     protected List<String> shortQuotes = new ArrayList<>();
 
     @Override

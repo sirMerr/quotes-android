@@ -90,9 +90,10 @@ public class MainActivity extends MenuActivity {
             public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
                 String category = ((TextView) view).getText().toString();
                 Log.i(TAG, "onItemClick - category:" + category);
+                Log.i(TAG, "onItemClick - position:" + position);
 
                 Intent i = new Intent(context, QuoteListActivity.class);
-                i.putExtra(QuoteListActivity.CATEGORY, category);
+                i.putExtra(QuoteListActivity.CATEGORY, position);
                 startActivity(i);
             }
         });

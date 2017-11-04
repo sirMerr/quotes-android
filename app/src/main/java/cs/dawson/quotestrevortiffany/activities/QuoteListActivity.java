@@ -10,7 +10,11 @@ import android.widget.ArrayAdapter;
 import android.widget.ListView;
 import android.widget.TextView;
 
+import java.util.List;
+
 import cs.dawson.quotestrevortiffany.R;
+import cs.dawson.quotestrevortiffany.entities.Category;
+import cs.dawson.quotestrevortiffany.entities.Quote;
 
 /**
  * Quotes List Activity. Will show a ListView
@@ -22,7 +26,7 @@ import cs.dawson.quotestrevortiffany.R;
  */
 public class QuoteListActivity extends MenuActivity {
     static final String TAG = "QuotesListActivity: ";
-    public static final String CATEGORY = "trevortiffany.category";
+    public static final String CATEGORY = "categoryId";
     private ArrayAdapter<String> adapterString;
     ListView lv;
     private Context context;
@@ -36,18 +40,18 @@ public class QuoteListActivity extends MenuActivity {
         Intent intent = getIntent();
         Bundle extras = intent.getExtras();
 
-        Log.d(TAG, "Extras: " + extras);
-
         lv = (ListView) findViewById(R.id.listView2);
 
-        // TODO: read from save state to get which category to display
+        setListView();
+
+        setShortQuotes(extras);
     }
 
     private void setListView() {
         Log.d(TAG, "Setting list view");
         Log.d(TAG, "Categories: " + categories);
 
-        adapterString = new ArrayAdapter<>(this, android.R.layout.simple_list_item_1, titles);
+        adapterString = new ArrayAdapter<>(this, android.R.layout.simple_list_item_1, shortQuotes);
         lv.setAdapter(adapterString);
 
         //Click listeners for the items.
@@ -57,11 +61,30 @@ public class QuoteListActivity extends MenuActivity {
                 String category = ((TextView) view).getText().toString();
                 Log.i(TAG, "onItemClick - category:" + category);
 
-                Intent i = new Intent(context, QuoteListActivity.class);
-                i.putExtra(QuoteListActivity.CATEGORY, category);
+                Intent i = new Intent(context, QuoteActivity.class);
+                i.putExtra("quote.full", category);
                 startActivity(i);
             }
         });
 
+    }
+
+    /**
+     * Sets the short quotes from the id passed through the extras
+     */
+    private void setShortQuotes(Bundle extras) {
+
+        Log.d(TAG, "Extras: " + extras.get(CATEGORY));
+
+        if (categories != null && !categories.isEmpty()) {
+            Category category = categories.get((int) extras.get(CATEGORY));
+
+            List<Quote> quotes = category.getQuotes();
+            for (int i = 0; i < quotes.size(); i++) {
+                shortQuotes.add(quotes.get(i).getShortQuote());
+            }
+
+            adapterString.notifyDataSetChanged();
+        }
     }
 }
