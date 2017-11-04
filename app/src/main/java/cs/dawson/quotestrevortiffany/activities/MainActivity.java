@@ -3,8 +3,8 @@ package cs.dawson.quotestrevortiffany.activities;
 import android.content.Context;
 import android.content.Intent;
 import android.graphics.drawable.Drawable;
-import android.support.annotation.NonNull;
 import android.os.Bundle;
+import android.support.annotation.NonNull;
 import android.util.Log;
 import android.view.View;
 import android.widget.AdapterView;
@@ -26,12 +26,18 @@ import com.google.firebase.database.ValueEventListener;
 
 import java.io.InputStream;
 import java.net.URL;
-import java.util.ArrayList;
-import java.util.List;
 
 import cs.dawson.quotestrevortiffany.R;
 import cs.dawson.quotestrevortiffany.entities.Category;
 
+/**
+ * Main Activity that gets the data from our
+ * firebase database and has the first list
+ * of all categories.
+ *
+ * @author Trevor Eames
+ * @author Tiffany Le-Nguyen
+ */
 public class MainActivity extends MenuActivity {
     static final String TAG = "MainActivity Class: ";
     private FirebaseAuth mAuth;

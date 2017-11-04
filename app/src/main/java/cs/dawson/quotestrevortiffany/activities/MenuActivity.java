@@ -13,9 +13,12 @@ import cs.dawson.quotestrevortiffany.R;
 import cs.dawson.quotestrevortiffany.entities.Category;
 
 /**
- * Created by sirMerr on 2017-11-04.
+ * Menu Activity which has the about, random and last
+ * run items that each other activity will implement
+ *
+ * @author Trevor Eames
+ * @author Tiffany Le-Nguyen
  */
-
 public class MenuActivity extends AppCompatActivity {
     private static final String TAG = "MenuActivity";
     protected List<String> titles = new ArrayList<>();
