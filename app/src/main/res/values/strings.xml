@@ -4,4 +4,11 @@
     <string name="about">About</string>
     <string name="last">Last Run</string>
     <string name="random">Random</string>
+    <string name="author">Author: </string>
+    <string name="name">Name:</string>
+    <string name="birthdate">Birthday: </string>
+    <string name="shortQuote">Short Quote: </string>
+    <string name="fullQuote">Full Quote: </string>
+    <string name="url">No URL</string>
+    <string name="dateAdded">Date Added:</string>
 </resources>

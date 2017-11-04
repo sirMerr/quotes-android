@@ -1,8 +1,10 @@
 package cs.dawson.quotestrevortiffany.activities;
 
+import android.content.Intent;
 import android.os.Bundle;
 
 import cs.dawson.quotestrevortiffany.R;
+import cs.dawson.quotestrevortiffany.entities.Quote;
 
 /**
  * Quote Activity displays all of the information associated with the quote,
@@ -14,11 +16,18 @@ import cs.dawson.quotestrevortiffany.R;
  * @author Tiffany Le-Nguyen
  */
 public class QuoteActivity extends MenuActivity {
+    static final String TAG = "QuoteActivity Class: ";
+    private Quote quote;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+        Intent intent = getIntent();
+        Bundle extras = intent.getExtras();
 
-        setContentView(R.layout.activity_about_page);
+        setContentView(R.layout.activity_quote);
+
+
 
     }
 
