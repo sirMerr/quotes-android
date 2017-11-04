@@ -1,8 +1,11 @@
 package cs.dawson.quotestrevortiffany.activities;
 
 /**
- * Created by sirMerr on 2017-10-24.
+ * About activity containing information about
+ * the project and an image
+ *
+ * @author Trevor Eames
+ * @author Tiffany Le-Nguyen
  */
-
-public class AboutActivity {
+public class AboutActivity extends MenuActivity{
 }

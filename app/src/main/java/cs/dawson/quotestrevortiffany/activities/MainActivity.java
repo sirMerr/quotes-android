@@ -1,11 +1,13 @@
 package cs.dawson.quotestrevortiffany.activities;
 
 import android.content.Context;
+import android.content.Intent;
 import android.graphics.drawable.Drawable;
-import android.support.annotation.NonNull;
-import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.support.annotation.NonNull;
 import android.util.Log;
+import android.view.View;
+import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 import android.widget.ListView;
 import android.widget.Toast;
@@ -23,22 +25,28 @@ import com.google.firebase.database.ValueEventListener;
 
 import java.io.InputStream;
 import java.net.URL;
-import java.util.ArrayList;
-import java.util.List;
 
-import cs.dawson.myapplication.R;
+import cs.dawson.quotestrevortiffany.R;
 import cs.dawson.quotestrevortiffany.entities.Category;
 
-public class MainActivity extends AppCompatActivity {
+/**
+ * Main Activity that gets the data from our
+ * firebase database and has the first list
+ * of all categories.
+ *
+ * @author Trevor Eames
+ * @author Tiffany Le-Nguyen
+ */
+public class MainActivity extends MenuActivity {
     static final String TAG = "MainActivity Class: ";
     private FirebaseAuth mAuth;
     private FirebaseAuth.AuthStateListener mAuthListener;
     private String email = "letiffany.nguyen@gmail.com";
     private String password = "adminquotes";
-    private List<Category> categories = new ArrayList<>();
     private ListView lv;
     private Context context;
-    private ArrayAdapter<Category> adapter;
+    private ArrayAdapter<String> adapterString;
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -48,14 +56,18 @@ public class MainActivity extends AppCompatActivity {
 
         lv = (ListView) findViewById(R.id.listView);
 
-        Log.d(TAG, "WHAT EVEN IS THIS TOO");
+        authFirebase();
+        getDB();
 
+        setListView();
+    }
+
+    private void authFirebase() {
         // Initiate FirebaseAuth and AUthStateListener to track
         // whenever user signs in or out
         mAuth = FirebaseAuth.getInstance();
         signIn(email, password);
 
-        Log.d(TAG, "WHAT EVEN IS THIS");
         mAuthListener = new FirebaseAuth.AuthStateListener() {
             @Override
             public void onAuthStateChanged(@NonNull FirebaseAuth firebaseAuth) {
@@ -69,19 +81,24 @@ public class MainActivity extends AppCompatActivity {
                 }
             }
         };
-
-        getDB();
-
-        setListView();
     }
-
     private void setListView() {
-
         Log.d(TAG, "Setting list view");
         Log.d(TAG, "Categories: " + categories);
 
-        adapter = new ArrayAdapter<>(this, android.R.layout.simple_list_item_1, categories);
-        lv.setAdapter(adapter);
+        adapterString = new ArrayAdapter<>(this, android.R.layout.simple_list_item_1, titles);
+        lv.setAdapter(adapterString);
+
+        // Click listeners for items
+        lv.setOnItemClickListener(new AdapterView.OnItemClickListener() {
+            @Override
+            public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
+                Intent i = new Intent(context, QuoteListActivity.class);
+                i.putExtra("categoryId", position);
+                startActivity(i);
+            }
+        });
+
     }
 
     /**
@@ -149,7 +166,10 @@ public class MainActivity extends AppCompatActivity {
                     categories.add(categorySnap.getValue(Category.class));
                 }
 
-                adapter.notifyDataSetChanged();
+                for (int i = 0; i < categories.size(); i++) {
+                    titles.add(categories.get(i).getTitle());
+                }
+                adapterString.notifyDataSetChanged();
                 Log.d(TAG, "Categories found: " + categories);
 
             }
@@ -161,21 +181,5 @@ public class MainActivity extends AppCompatActivity {
             }
         });
 
-    }
-
-    /**
-     * Return a drawable to display from an image
-     * url. You can then set the image to an image view
-     * @param url
-     *      from Firebase
-     * @return Drawable
-     */
-    public Drawable getImageFromUrl(String url) {
-        try {
-            InputStream is = (InputStream) new URL(url).getContent();
-            return Drawable.createFromStream(is, "url");
-        } catch (Exception e) {
-            return null;
-        }
     }
 }

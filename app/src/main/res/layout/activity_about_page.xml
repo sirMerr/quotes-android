@@ -3,5 +3,8 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     android:orientation="vertical" android:layout_width="match_parent"
     android:layout_height="match_parent">
+<<<<<<< HEAD
 
+=======
+>>>>>>> d53d9dc44390b8927689fbbeececba6bc66d9090
 </LinearLayout>
