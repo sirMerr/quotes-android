@@ -1,10 +1,13 @@
-package cs.dawson.quotestrevortiffany.views;
+package cs.dawson.quotestrevortiffany.activities;
 
+import android.content.Context;
 import android.graphics.drawable.Drawable;
 import android.support.annotation.NonNull;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.util.Log;
+import android.widget.ArrayAdapter;
+import android.widget.ListView;
 import android.widget.Toast;
 
 import com.google.android.gms.tasks.OnCompleteListener;
@@ -33,17 +36,26 @@ public class MainActivity extends AppCompatActivity {
     private String email = "letiffany.nguyen@gmail.com";
     private String password = "adminquotes";
     private List<Category> categories = new ArrayList<>();
+    private ListView lv;
+    private Context context;
+    private ArrayAdapter<Category> adapter;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
+        context = this.getApplicationContext();
+
+        lv = (ListView) findViewById(R.id.listView);
+
+        Log.d(TAG, "WHAT EVEN IS THIS TOO");
 
         // Initiate FirebaseAuth and AUthStateListener to track
         // whenever user signs in or out
         mAuth = FirebaseAuth.getInstance();
         signIn(email, password);
 
+        Log.d(TAG, "WHAT EVEN IS THIS");
         mAuthListener = new FirebaseAuth.AuthStateListener() {
             @Override
             public void onAuthStateChanged(@NonNull FirebaseAuth firebaseAuth) {
@@ -59,6 +71,17 @@ public class MainActivity extends AppCompatActivity {
         };
 
         getDB();
+
+        setListView();
+    }
+
+    private void setListView() {
+
+        Log.d(TAG, "Setting list view");
+        Log.d(TAG, "Categories: " + categories);
+
+        adapter = new ArrayAdapter<>(this, android.R.layout.simple_list_item_1, categories);
+        lv.setAdapter(adapter);
     }
 
     /**
@@ -125,7 +148,10 @@ public class MainActivity extends AppCompatActivity {
                 for (DataSnapshot categorySnap: dataSnapshot.getChildren()) {
                     categories.add(categorySnap.getValue(Category.class));
                 }
+
+                adapter.notifyDataSetChanged();
                 Log.d(TAG, "Categories found: " + categories);
+
             }
 
             @Override
@@ -134,6 +160,7 @@ public class MainActivity extends AppCompatActivity {
                 Log.w(TAG, "Failed to read value.", error.toException());
             }
         });
+
     }
 
     /**
