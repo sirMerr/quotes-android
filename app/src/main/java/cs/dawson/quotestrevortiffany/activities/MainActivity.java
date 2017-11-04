@@ -1,13 +1,17 @@
 package cs.dawson.quotestrevortiffany.activities;
 
 import android.content.Context;
+import android.content.Intent;
 import android.graphics.drawable.Drawable;
 import android.support.annotation.NonNull;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.util.Log;
+import android.view.View;
+import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 import android.widget.ListView;
+import android.widget.TextView;
 import android.widget.Toast;
 
 import com.google.android.gms.tasks.OnCompleteListener;
@@ -85,7 +89,20 @@ public class MainActivity extends AppCompatActivity {
 
         adapterString = new ArrayAdapter<>(this, android.R.layout.simple_list_item_1, titles);
         lv.setAdapter(adapterString);
-        
+
+        //Click listeners for the items.
+        lv.setOnItemClickListener(new AdapterView.OnItemClickListener() {
+            @Override
+            public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
+                String category = ((TextView) view).getText().toString();
+                Log.i(TAG, "onItemClick - category:" + category);
+
+                Intent i = new Intent(context, QuoteListActivity.class);
+                i.putExtra(QuoteListActivity.CATEGORY, category);
+                startActivity(i);
+            }
+        });
+
     }
 
     /**

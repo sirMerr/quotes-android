@@ -1,4 +1,7 @@
 <resources>
     <string name="app_name">My Application</string>
     <string name="auth_failed">Failed to authenticate</string>
+    <string name="about">About</string>
+    <string name="last">Last Run</string>
+    <string name="random">Random</string>
 </resources>
