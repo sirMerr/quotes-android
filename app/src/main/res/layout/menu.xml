@@ -1,18 +1,18 @@
 <?xml version="1.0" encoding="utf-8"?>
-<Menu xmlns:android="http://schemas.android.com/apk/res/android" android:layout_height="match_parent" android:layout_width="match_parent">
-    <Item
+<menu xmlns:android="http://schemas.android.com/apk/res/android" android:layout_height="match_parent" android:layout_width="match_parent">
+    <item
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:title="@string/about"
         android:id="@+id/aboutItem"/>
-    <Item
+    <item
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:title="@string/random"
         android:id="@+id/randomItem"/>
-    <Item
+    <item
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:title="@string/last"
         android:id="@+id/lastItem"/>
-</Menu>
+</menu>
