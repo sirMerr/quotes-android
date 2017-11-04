@@ -39,6 +39,9 @@ public class MainActivity extends AppCompatActivity {
     private ListView lv;
     private Context context;
     private ArrayAdapter<Category> adapter;
+    private ArrayAdapter<String> adapterString;
+    List<String> titles = new ArrayList<>();
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -80,8 +83,9 @@ public class MainActivity extends AppCompatActivity {
         Log.d(TAG, "Setting list view");
         Log.d(TAG, "Categories: " + categories);
 
-        adapter = new ArrayAdapter<>(this, android.R.layout.simple_list_item_1, categories);
-        lv.setAdapter(adapter);
+        adapterString = new ArrayAdapter<>(this, android.R.layout.simple_list_item_1, titles);
+        lv.setAdapter(adapterString);
+        
     }
 
     /**
@@ -149,7 +153,10 @@ public class MainActivity extends AppCompatActivity {
                     categories.add(categorySnap.getValue(Category.class));
                 }
 
-                adapter.notifyDataSetChanged();
+                for (int i = 0; i < categories.size(); i++) {
+                    titles.add(categories.get(i).getTitle());
+                }
+                adapterString.notifyDataSetChanged();
                 Log.d(TAG, "Categories found: " + categories);
 
             }
