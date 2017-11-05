@@ -14,18 +14,19 @@
 
         <TextView
             android:id="@+id/textViewAuthor"
-            android:layout_width="133dp"
+            android:layout_width="190dp"
             android:layout_height="match_parent"
+            android:layout_marginLeft="10dp"
             android:layout_weight="1"
             android:text="@string/author" />
 
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            android:layout_marginRight="10dp"
             android:layout_weight="1"
-            android:orientation="vertical"
             android:onClick="displayBlurb"
-            >
+            android:orientation="vertical">
 
             <TextView
                 android:id="@+id/textViewName"
@@ -54,6 +55,7 @@
             android:id="@+id/textViewShortQuoteText"
             android:layout_width="190dp"
             android:layout_height="wrap_content"
+            android:layout_marginLeft="10dp"
             android:layout_weight="1"
             android:text="@string/shortQuote" />
 
@@ -61,6 +63,7 @@
             android:id="@+id/textViewShortQuote"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            android:layout_marginRight="10dp"
             android:layout_weight="1"
             android:text="" />
     </LinearLayout>
@@ -74,6 +77,7 @@
             android:id="@+id/textViewDateAddedText"
             android:layout_width="190dp"
             android:layout_height="wrap_content"
+            android:layout_marginLeft="10dp"
             android:layout_weight="1"
             android:text="@string/dateAdded" />
 
@@ -81,6 +85,7 @@
             android:id="@+id/textViewDateAdded"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            android:layout_marginRight="10dp"
             android:layout_weight="1"
             android:text="" />
     </LinearLayout>
@@ -94,6 +99,7 @@
             android:id="@+id/textViewFullQuoteText"
             android:layout_width="190dp"
             android:layout_height="wrap_content"
+            android:layout_marginLeft="10dp"
             android:layout_weight="1"
             android:text="@string/fullQuote" />
 
@@ -101,6 +107,7 @@
             android:id="@+id/textViewFullQuote"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            android:layout_marginRight="10dp"
             android:layout_weight="1"
             android:text="" />
     </LinearLayout>
@@ -109,13 +116,17 @@
         android:id="@+id/textViewUrl"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:autoLink="web"
         android:text="@string/url"
-        android:autoLink="web"/>
+        android:textAlignment="center" />
 
 
     <ImageView
         android:id="@+id/imageView2"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:layout_marginLeft="20dp"
+        android:layout_marginRight="20dp"
+        android:layout_marginTop="10dp"
         app:srcCompat="@mipmap/ic_launcher" />
 </LinearLayout>
