@@ -56,6 +56,7 @@ public class QuoteActivity extends MenuActivity {
         if (savedInstanceState == null) {
             int categoryId = extras.getInt("categoryId");
             int quoteId = extras.getInt("quoteId");
+            Log.d(TAG, "User chose quote id: "  + quoteId);
 
             quote = categories.get(categoryId).getQuotes().get(quoteId);
 
