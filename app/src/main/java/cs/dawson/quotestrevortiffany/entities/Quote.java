@@ -1,6 +1,11 @@
 package cs.dawson.quotestrevortiffany.entities;
 
 /**
+ * A wuote object represents a quote. It has an author who wrote the quote
+ * a date added for when the quote was said, a fullquote which is the actual
+ * quote in question, a shortquote which is a small 30 character sample of
+ * the quote and a url which is where the quote can be found.
+ *
  * Created by sirMerr on 2017-10-24.
  */
 
