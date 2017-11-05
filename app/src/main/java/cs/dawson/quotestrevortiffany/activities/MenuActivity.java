@@ -32,7 +32,6 @@ public class MenuActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
     }
 
-
     /**
      * Invoked when user selects a menu item and
      * shows the selected intent

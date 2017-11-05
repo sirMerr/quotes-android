@@ -2,8 +2,6 @@ package cs.dawson.quotestrevortiffany.activities;
 
 import android.app.AlertDialog;
 import android.content.Intent;
-import android.graphics.drawable.Drawable;
-import android.net.Uri;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
@@ -11,10 +9,6 @@ import android.widget.ImageView;
 import android.widget.TextView;
 
 import com.bumptech.glide.Glide;
-import com.firebase.ui.storage.images.FirebaseImageLoader;
-
-import java.io.InputStream;
-import java.net.URL;
 
 import cs.dawson.quotestrevortiffany.R;
 import cs.dawson.quotestrevortiffany.entities.Quote;
@@ -31,11 +25,19 @@ import cs.dawson.quotestrevortiffany.entities.Quote;
 public class QuoteActivity extends MenuActivity {
     static final String TAG = "QuoteActivity Class: ";
     private Quote quote = new Quote();
-    TextView tvName, tvBirthdate, tvDateAdded,
+    private TextView tvName, tvBirthdate, tvDateAdded,
             tvFullQuote, tvShortQuote, tvUrl;
-    ImageView imageView;
-    String categoryImage;
+    private ImageView imageView;
+    private String categoryImage;
 
+    /**
+     * When invoked, will set up the activity.
+     * Assigns the text views and image views,
+     * gets the intent and category index and quote index,
+     * sets the list view and set Quote information
+     *
+     * @param savedInstanceState
+     */
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
