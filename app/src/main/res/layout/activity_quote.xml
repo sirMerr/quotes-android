@@ -45,23 +45,65 @@
 
     </LinearLayout>
 
-    <TextView
-        android:id="@+id/textViewShortQuote"
+    <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="@string/shortQuote" />
+        android:orientation="horizontal">
 
-    <TextView
-        android:id="@+id/textViewDateAdded"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:text="@string/dateAdded" />
+        <TextView
+            android:id="@+id/textViewShortQuoteText"
+            android:layout_width="190dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:text="@string/shortQuote" />
 
-    <TextView
-        android:id="@+id/textViewFullQuote"
+        <TextView
+            android:id="@+id/textViewShortQuote"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:text="" />
+    </LinearLayout>
+
+    <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="@string/fullQuote" />
+        android:orientation="horizontal">
+
+        <TextView
+            android:id="@+id/textViewDateAddedText"
+            android:layout_width="190dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:text="@string/dateAdded" />
+
+        <TextView
+            android:id="@+id/textViewDateAdded"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:text="" />
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal">
+
+        <TextView
+            android:id="@+id/textViewFullQuoteText"
+            android:layout_width="190dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:text="@string/fullQuote" />
+
+        <TextView
+            android:id="@+id/textViewFullQuote"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:text="" />
+    </LinearLayout>
 
     <TextView
         android:id="@+id/textViewUrl"
