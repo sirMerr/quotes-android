@@ -87,7 +87,11 @@ public class MenuActivity extends AppCompatActivity {
         Log.i(TAG, "Displaying Random");
         Intent intent = new Intent(this, QuoteActivity.class);
 
-        // TODO: Choose random category and put extra
+        int randomCat = (int)Math.random() * categories.size();
+        int randomQuote = (int) Math.random() * categories.get(randomCat).getQuotes().size();
+
+        intent.putExtra("quoteId", randomQuote);
+        intent.putExtra("categoryId", randomCat);
 
         startActivity(intent);
     }
