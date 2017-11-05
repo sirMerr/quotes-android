@@ -1,6 +1,9 @@
 package cs.dawson.quotestrevortiffany.entities;
 
 /**
+ * Author relates to the author of a quote. They have
+ * a birth date, a name, and a blurb, which is a small summary of who they are
+ *
  * Created by sirMerr on 2017-10-27.
  */
 

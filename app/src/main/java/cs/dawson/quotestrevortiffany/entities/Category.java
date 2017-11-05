@@ -4,6 +4,10 @@ import java.util.ArrayList;
 import java.util.List;
 
 /**
+ * A category is just that, a category of quote, which
+ * will hold a list of Quote objects which belong to that
+ * category.
+ *
  * Created by sirMerr on 2017-10-24.
  */
 

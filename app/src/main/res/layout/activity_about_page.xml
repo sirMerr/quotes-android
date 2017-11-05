@@ -3,4 +3,29 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     android:orientation="vertical" android:layout_width="match_parent"
     android:layout_height="match_parent">
+
+    <TextView
+        android:id="@+id/textView"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:lineSpacingExtra="4sp"
+        android:text="@string/appInfo"
+        android:textAlignment="viewStart"
+        android:textSize="18sp" />
+
+    <TextView
+        android:id="@+id/textView2"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="@string/names"
+        android:textAlignment="center"
+        android:textSize="24sp"
+        android:layout_marginTop="12sp"
+        android:layout_marginBottom="12sp"/>
+
+    <ImageView
+        android:id="@+id/imageView"
+        android:layout_width="match_parent"
+        android:layout_height="259dp"
+        app:srcCompat="@drawable/nevermore" />
 </LinearLayout>
