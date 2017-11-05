@@ -2,7 +2,6 @@ package cs.dawson.quotestrevortiffany.activities;
 
 import android.content.Context;
 import android.content.Intent;
-import android.graphics.drawable.Drawable;
 import android.os.Bundle;
 import android.support.annotation.NonNull;
 import android.util.Log;
@@ -22,9 +21,6 @@ import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.database.ValueEventListener;
-
-import java.io.InputStream;
-import java.net.URL;
 
 import cs.dawson.quotestrevortiffany.R;
 import cs.dawson.quotestrevortiffany.entities.Category;
@@ -48,6 +44,13 @@ public class MainActivity extends MenuActivity {
     private ArrayAdapter<String> adapterString;
 
 
+    /**
+     * When invoked, will set up the activity.
+     * Assigns the list view, get the data from firebase
+     * and set the list of category titles
+     *
+     * @param savedInstanceState
+     */
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -62,9 +65,11 @@ public class MainActivity extends MenuActivity {
         setListView();
     }
 
+    /**
+     * Initiate FirebaseAuth and AUthStateListener to track
+     * whenever a user signs in or out
+     */
     private void authFirebase() {
-        // Initiate FirebaseAuth and AUthStateListener to track
-        // whenever user signs in or out
         mAuth = FirebaseAuth.getInstance();
         signIn(email, password);
 
@@ -82,6 +87,12 @@ public class MainActivity extends MenuActivity {
             }
         };
     }
+
+    /**
+     * Set list view with category titles and
+     * add click listeners that send the category
+     * index as an extra to QuoteListActivity
+     */
     private void setListView() {
         Log.d(TAG, "Setting list view");
         Log.d(TAG, "Categories: " + categories);
@@ -169,6 +180,7 @@ public class MainActivity extends MenuActivity {
                 for (int i = 0; i < categories.size(); i++) {
                     titles.add(categories.get(i).getTitle());
                 }
+
                 adapterString.notifyDataSetChanged();
                 Log.d(TAG, "Categories found: " + categories);
 
