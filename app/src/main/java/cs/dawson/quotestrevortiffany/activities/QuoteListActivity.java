@@ -29,6 +29,7 @@ public class QuoteListActivity extends MenuActivity {
     private ArrayAdapter<String> adapterString;
     ListView lv;
     private Context context;
+    private int categoryId;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -38,12 +39,13 @@ public class QuoteListActivity extends MenuActivity {
 
         Intent intent = getIntent();
         Bundle extras = intent.getExtras();
+        categoryId = extras.getInt("categoryId");
 
         lv = (ListView) findViewById(R.id.listView2);
 
         setListView();
 
-        setShortQuotes(extras);
+        setShortQuotes();
     }
 
     private void setListView() {
@@ -57,10 +59,9 @@ public class QuoteListActivity extends MenuActivity {
         lv.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             @Override
             public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
-                String category = ((TextView) view).getText().toString();
-
                 Intent i = new Intent(context, QuoteActivity.class);
-                i.putExtra("quote.full", category);
+                i.putExtra("quoteId", position);
+                i.putExtra("categoryId", categoryId);
                 startActivity(i);
             }
         });
@@ -70,12 +71,9 @@ public class QuoteListActivity extends MenuActivity {
     /**
      * Sets the short quotes from the id passed through the extras
      */
-    private void setShortQuotes(Bundle extras) {
-
-        Log.d(TAG, "Extras: " + extras.get("categoryId"));
-
+    private void setShortQuotes() {
         if (categories != null && !categories.isEmpty()) {
-            Category category = categories.get((int) extras.get("categoryId"));
+            Category category = categories.get(categoryId);
 
             List<Quote> quotes = category.getQuotes();
             for (int i = 0; i < quotes.size(); i++) {

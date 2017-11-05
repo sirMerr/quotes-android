@@ -43,18 +43,18 @@ Using images in Android & firebase see:
 
 You will define the firebase JSON / database as having:
 
-- [ ] Category (for example: sci fi, romance, computer science, science, celebrities, politicians, fictional characters, etc)
+- [X] Category (for example: sci fi, romance, computer science, science, celebrities, politicians, fictional characters, etc)
 
-* [ ] Small Image for each category (smaller than 10MB due to firebase spec)
+* [X] Small Image for each category (smaller than 10MB due to firebase spec)
 
-* [ ] Multiple quotes per category, for each quote have:
-    - [ ] Attributed (name of the person the quote is attributed to)
-    - [ ] Date of birth (of person who said the quote)
-    - [ ] Blurb  (one sentence of information about the person who said the quote)
-    - [ ] Quote short (30 char)
-    - [ ] Quote full ( the quote text itself )
-    - [ ] Reference (url of the site where you found the quote)
-    - [ ] Date (date added)  YYYY-MM-DD
+* [X] Multiple quotes per category, for each quote have:
+    - [X] Attributed (name of the person the quote is attributed to)
+    - [X] Date of birth (of person who said the quote)
+    - [X] Blurb  (one sentence of information about the person who said the quote)
+    - [X] Quote short (30 char)
+    - [X] Quote full ( the quote text itself )
+    - [X] Reference (url of the site where you found the quote)
+    - [X] Date (date added)  YYYY-MM-DD
 
 [Suggested ERD](https://drive.google.com/file/d/0B-CHlg81QPjfU25PbWI0VGYtbzQ/view?usp=sharing)   but firebase is NOSQL so see [how to structure firebase including best practices](https://firebase.google.com/docs/database/web/structure-data)
 
@@ -64,17 +64,17 @@ Populate the database via the console: [http://mariechatfield.com/tutorials/fire
 
 ## Behaviour
 
-- [ ] `MainActivity` on launch will show  ListView or RecyclerView populated with the categories from firebase.  When a user clicks on the category launch QuoteListActivity
+- [X] `MainActivity` on launch will show  ListView or RecyclerView populated with the categories from firebase.  When a user clicks on the category launch QuoteListActivity
 
-- [ ] `QuoteListActivity` will show a ListView or RecyclerView and display the short quote for all quotes in that category.  When a user clicks on the short quote launch QuoteActivity
+- [X] `QuoteListActivity` will show a ListView or RecyclerView and display the short quote for all quotes in that category.  When a user clicks on the short quote launch QuoteActivity
 
-- [ ] `QuoteActivity` display all of the information associated with the quote, except the blurb.  Include the image for the category. Design it nicely, the URI must be clickable, name it refernce    Format the Views nicely.  The name attributed is clickable and will show a dialogue containing the blurb information with one button to dismiss.
+- [X] `QuoteActivity` display all of the information associated with the quote, except the blurb.  Include the image for the category. Design it nicely, the URI must be clickable, name it refernce    Format the Views nicely.  The name attributed is clickable and will show a dialogue containing the blurb information with one button to dismiss.
 
 [Dialog](https://developer.android.com/guide/topics/ui/dialogs.html)
 
 All activites are to have the same options menu with the following (do not duplicate code, see the Menus ppts, use the name MenuActivity)
 
-- [ ] About: it will launch a single AboutActivity.
+- [X] About: it will launch a single AboutActivity.
 
 - [ ] Random: it will choose a random category & random quote and display it.
 - [ ] Last: it will show the last quote from the previous runtime
@@ -86,7 +86,7 @@ AboutActivity must contain information about the app, your names and an image (y
 ## App Name
 
 Make the app name Quotes<name1><name2>  so that it will be unique when I install. Use the first name only, for each team member.  For example if Ada Lovelace was working with Grace Hopper  the name would be QuotesAdaGrace
-
+- [X] DONE
 ## Collaboration (you may NOT do this solo)
 
 You will do this assignment with a [teacher assigned partner.](https://docs.google.com/spreadsheets/d/1S3rkvnp0wGZkONimtI9jGYbM77eEcgN-g74v6uQF6AI/edit?usp=sharing)  Use the protected branch workflow from git lab 3 [READ the workflow overview again](https://github.com/Android518-2017/git-workflow)
