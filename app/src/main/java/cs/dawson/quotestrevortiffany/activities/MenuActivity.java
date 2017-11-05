@@ -10,6 +10,7 @@ import android.view.MenuItem;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Random;
 
 import cs.dawson.quotestrevortiffany.R;
 import cs.dawson.quotestrevortiffany.entities.Category;
@@ -83,16 +84,19 @@ public class MenuActivity extends AppCompatActivity {
      * Display random quote
      */
     private void displayRandom() {
-        Log.i(TAG, "Displaying Random");
-        Intent intent = new Intent(this, QuoteActivity.class);
+        if(!categories.isEmpty()) {
+            Log.i(TAG, "Displaying Random");
+            Intent intent = new Intent(this, QuoteActivity.class);
 
-        int randomCat = (int)Math.random() * categories.size();
-        int randomQuote = (int) Math.random() * categories.get(randomCat).getQuotes().size();
+            Random random = new Random();
+            int randomCat = random.nextInt(categories.size() );
+            int randomQuote = random.nextInt(categories.get(randomCat).getQuotes().size());
 
-        intent.putExtra("quoteId", randomQuote);
-        intent.putExtra("categoryId", randomCat);
+            intent.putExtra("quoteId", randomQuote);
+            intent.putExtra("categoryId", randomCat);
 
-        startActivity(intent);
+            startActivity(intent);
+        }
     }
 
     /**
@@ -101,6 +105,7 @@ public class MenuActivity extends AppCompatActivity {
     private void displayLastRun() {
         Log.i(TAG, "Displaying Last Run");
         Intent intent = new Intent(this, QuoteActivity.class);
+        intent.putExtra("last", true);
         startActivity(intent);
     }
 }

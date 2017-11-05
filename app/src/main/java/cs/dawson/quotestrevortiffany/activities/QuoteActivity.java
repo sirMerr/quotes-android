@@ -2,6 +2,7 @@ package cs.dawson.quotestrevortiffany.activities;
 
 import android.app.AlertDialog;
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
@@ -67,6 +68,8 @@ public class QuoteActivity extends MenuActivity {
             setView();
         }
 
+        if(extras.getBoolean("last")  == true)
+            loadLast();
     }
 
     /**
@@ -95,5 +98,43 @@ public class QuoteActivity extends MenuActivity {
                 .setPositiveButton("Ok \uD83D\uDC27", null)
                 .show();
     }
-    /** TODO: Add save to shared preferences **/
+
+    /**
+     * Overridden onPause so that last Quote is saved
+     */
+    @Override
+    public void onPause() {
+        super.onPause();
+
+        SharedPreferences prefs = getPreferences(MODE_PRIVATE);
+        SharedPreferences.Editor editor = prefs.edit();
+
+        editor.putString("tvName", tvName.getText().toString());
+        editor.putString("birth", tvBirthdate.getText().toString());
+        editor.putString("date", tvDateAdded.getText().toString());
+        editor.putString("fullQuote", tvFullQuote.getText().toString());
+        editor.putString("shortQuote", tvShortQuote.getText().toString());
+        editor.putString("tv", tvUrl.getText().toString());
+        editor.putString("category", categoryImage);
+
+        editor.commit();
+    }
+
+    /**
+     * Loads last shown quote from shared preferences
+     */
+    public void loadLast() {
+        SharedPreferences prefs = getPreferences(MODE_PRIVATE);
+
+        tvName.setText(prefs.getString("tvName", ""));
+        tvBirthdate.setText(prefs.getString("birth", ""));
+        tvDateAdded.setText(prefs.getString("date", ""));
+        tvFullQuote.setText(prefs.getString("fullQuote", ""));
+        tvShortQuote.setText(prefs.getString("shortQuote", ""));
+        tvUrl.setText(prefs.getString("tv",""));
+        categoryImage = prefs.getString("category", "");
+        Glide.with(this)
+                .load(categoryImage)
+                .into(imageView);
+    }
 }
