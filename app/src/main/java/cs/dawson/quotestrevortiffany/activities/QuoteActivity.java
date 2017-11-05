@@ -3,10 +3,15 @@ package cs.dawson.quotestrevortiffany.activities;
 import android.app.AlertDialog;
 import android.content.Intent;
 import android.graphics.drawable.Drawable;
+import android.net.Uri;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.View;
 import android.widget.ImageView;
 import android.widget.TextView;
+
+import com.bumptech.glide.Glide;
+import com.firebase.ui.storage.images.FirebaseImageLoader;
 
 import java.io.InputStream;
 import java.net.URL;
@@ -29,7 +34,7 @@ public class QuoteActivity extends MenuActivity {
     TextView tvName, tvBirthdate, tvDateAdded,
             tvFullQuote, tvShortQuote, tvUrl;
     ImageView imageView;
-    Drawable categoryImage;
+    String categoryImage;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -53,7 +58,9 @@ public class QuoteActivity extends MenuActivity {
             int quoteId = extras.getInt("quoteId");
 
             quote = categories.get(categoryId).getQuotes().get(quoteId);
-            categoryImage = getImageFromUrl(categories.get(categoryId).getImage());
+
+            Log.d(TAG,"Image: " + categories.get(categoryId).getImage());
+            categoryImage = categories.get(categoryId).getImage();
             setView();
         }
 
@@ -70,8 +77,9 @@ public class QuoteActivity extends MenuActivity {
         tvShortQuote.setText(quote.getShortQuote());
         tvUrl.setText(quote.getUrl());
 
-        // TODO: Fix image not showing
-        imageView.setImageDrawable(categoryImage);
+        Glide.with(this /* context */)
+                .load(categoryImage)
+                .into(imageView);
     }
 
     /**
@@ -83,22 +91,6 @@ public class QuoteActivity extends MenuActivity {
                 .setMessage(quote.getAuthor().getBlurb())
                 .setPositiveButton("Ok \uD83D\uDC27", null)
                 .show();
-    }
-
-    /**
-     * Return a drawable to display from an image
-     * url. You can then set the image to an image view
-     * @param url
-     *      from Firebase
-     * @return Drawable
-     */
-    public Drawable getImageFromUrl(String url) {
-        try {
-            InputStream is = (InputStream) new URL(url).getContent();
-            return Drawable.createFromStream(is, "url");
-        } catch (Exception e) {
-            return null;
-        }
     }
     /** TODO: Add save to shared preferences **/
 }
