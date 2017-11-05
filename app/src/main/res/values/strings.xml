@@ -1,3 +1,18 @@
 <resources>
-    <string name="app_name">My Application</string>
+    <string name="app_name">QuotesTrevorTiffany</string>
+    <string name="auth_failed">Failed to authenticate</string>
+    <string name="about">About</string>
+    <string name="last">Last Run</string>
+    <string name="random">Random</string>
+    <string name="author">Author: </string>
+    <string name="name">Name:</string>
+    <string name="birthdate">Birthday: </string>
+    <string name="shortQuote">Short Quote: </string>
+    <string name="fullQuote">Full Quote: </string>
+    <string name="url">No URL</string>
+    <string name="dateAdded">Date Added:</string>
+    <string name="appInfo">This app was made to allow a user to browse quotes which are being stored with firebase.
+    Our app includes a sample of the finest quotes from some of the coolest topics out there, which coincidentally
+     all happen to be things that Trevor is interested in...</string>
+    <string name="names">Made by: Tiffany and Trevor</string>
 </resources>
