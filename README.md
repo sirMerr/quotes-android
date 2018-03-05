@@ -1,28 +1,13 @@
 # QuotesTrevorTiffany
 
+IMPORTANT: This is currently missing a json file that allows this to work properly
+
 ## App Overview
+This is an android app in which the user can look at quotes from different categories and their corresponding authors and sources. Full specs below.
 
 ## Contributors
-- [Tiffany Le-Nguyen](github.com/sirmerr)
-- [Trevor Eames]
-Hello world baseline code for Assignment 1
-
-Begin by creating a branch of the Master, coordinate with your teammate to modify the code and merge pull requests.
-
-Eventually you must replace this README with one that contains:
-* your app name
-* your names
-* what the app does
-
-Be sure to follow the [Protected Branch Workflow](https://github.com/Android518-2017/git-workflow)
-
-## Review 
-* [git-workflow](https://github.com/Android518-2017/git-workflow)
-* [general](https://drive.google.com/open?id=1lo4pILADxl4YcSrMcl0JJDyq4w9tEtgzDTO7Xyr1ZmU)
-
-* [code guidelines](https://drive.google.com/open?id=16JAWKc7wJUgX-tk7aZ12anViPTENov1Svd9kkTmpUiw)
-
-You will follow this codelabs tutorial that creates a chat application with individual sign up and authentication, notifications and other cool stuff  in order to learn how to use firebase (firebase is a cloud hosted NoSQL database where data is stored as JSON.)  (nice one for the CV!)
+- [sirMerr](github.com/sirmerr)
+- [Trevor Eames](github.com/gimongi)
 
 ## Overview
 Tutorial:   [https://codelabs.developers.google.com/codelabs/firebase-android](https://codelabs.developers.google.com/codelabs/firebase-android)/
@@ -76,8 +61,8 @@ All activites are to have the same options menu with the following (do not dupli
 
 - [X] About: it will launch a single AboutActivity.
 
-- [ ] Random: it will choose a random category & random quote and display it.
-- [ ] Last: it will show the last quote from the previous runtime
+- [X] Random: it will choose a random category & random quote and display it.
+- [X] Last: it will show the last quote from the previous runtime
 
 You will have to save the last quote for the next runtime.
 
